@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#showme {
+    width: 100%;;
+    height:60px;
+    margin-top: 100px;
+    padding-top: 40px;
+    font-family: "微软雅黑";
+    font-size: 50px;
+    text-align: center;
+    color: black;
+}
+
+#create_number {
+    width: 100px;
+    height: 50px;
+    margin-left: 100px;
+    margin-top: 20px;
+    text-align: center;
+    color: blue;
+}
+
+#output {
+    font-family: "华文楷体";
+    font-size: 40px;
+    text-align: center;
+    color: darkorange;
+
+}
