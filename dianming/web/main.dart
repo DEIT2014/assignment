@@ -5,10 +5,10 @@ import 'dart:html';
 import 'dart:math';
 import 'dart:core';
 
-var count=0;final n=20;
+ var count=0; final n=20;
 List<int> list = new List(n); //定义数组
 
-void main() {
+void main(){
   for(var i=0;i<n;i++) {
     list[i] = 1000;
   }
