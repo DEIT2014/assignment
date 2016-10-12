@@ -8,7 +8,7 @@ body {
     font-family: 'Roboto', sans-serif;
 
 }
-#output{
+output{
     margin: 5px;
 }
 #showme{
@@ -16,8 +16,12 @@ body {
     color: #46614c;
     font-size: 30px;
     margin: 10px;
+    height:50px;
 }
 button{
+    height:50px;
+}
+#create_number{
     margin: 10px;
 }
 
