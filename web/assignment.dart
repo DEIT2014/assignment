@@ -3,15 +3,24 @@ import 'dart:math';
 
 void main() {
 
-  querySelector('#sample_text_id')
+querySelector('#sample_text_id')
     ..text = '点我产生随机数!';
 
    querySelector('#create_number').onClick.listen(generate);
 }
 
-void generate(MouseEvent event) {
-  var random=new Random();
-  var num=random.nextInt(60);
-  var s=querySelector('#shownum').text=num.toString();
-  querySelector('#sample_text_id').text='恭喜学号为 $s 的学生被选中！';
+void generate(MouseEvent) {
+var list=['王巍','石睿', '龚馨懿','鲁梁秀','张红艳','余英菲','战晓瑜','高佳平','陈婧','张甜甜','潘晨煜','李志伟','杜谦'];
+
+
+
+
+
+var random=new Random();
+  var num=random.nextInt(7);
+
+
+      querySelector('#sample_text_id').text = list[num];
+
   }
+ 
