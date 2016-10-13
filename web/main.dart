@@ -1,6 +1,7 @@
 // Copyright (c) 2016, <your name>. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
-
+import'dart:io';
+import 'package:args/args.dart';
 import 'dart:html';
 import'dart:math';
 var keepname =new List<int>();//要移出来不能放在generate函数当中，不然每次都生成keepname数组，数组中永远无法保存已经抽选过的num函数
