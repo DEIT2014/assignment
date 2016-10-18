@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+
 
 body {
     width:100%;
@@ -24,4 +24,6 @@ button{
 #create_number{
     margin: 10px;
 }
-
+#load{margin: 10px;}
+#json_content{height: 200px;
+    width:200px;}
