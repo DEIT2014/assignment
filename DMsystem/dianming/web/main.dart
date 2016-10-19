@@ -1,6 +1,6 @@
 // Copyright (c) 2016, <your name>. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
-
+/*原始的点名文件！！！
 import 'dart:html';
 import 'dart:math';
 import 'dart:core';
@@ -54,4 +54,33 @@ void generate(MouseEvent e)
     if(count>=n) querySelector('#show').text="点名结束！";
   //可以输出未出席学生学号
 }
+*/
+//通过访问json来显示点名的学号和姓名！！！
+import 'dart:html'
+;
+var host = "127.0.0.1:8080";
+
+void main() {
+  querySelector("#create_number").onClick.listen(showData);//API不建议用的,get
+  //querySelector("#loadStructured").onClick.listen(loadStructuredData);//get
+  //querySelector("#save").onClick.listen(saveData);//put
+}
+
+void showData(_) {
+  print("Loading data");//其实没用
+  var url = "http://$host/programming-languages";//host=127.0.0.1
+
+  // call the web server asynchronously
+  var request = HttpRequest.getString(url).then(onDataLoaded);//dart.html//ondataloaded回调函数//查看APIdart:html,get方法//url服务器地址
+}
+
+onDataLoaded(responseText) {//服务器返回的文本
+  print(" Data Loaded");//其实没用
+  var jsonString = responseText;
+  //List<int> list = new List(n); //定义数组
+ // List listname=想把response变成map形式？
+  querySelector("#showme").text = jsonString;//就是json中的文件
+}
+
+
 
