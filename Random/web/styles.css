@@ -17,28 +17,66 @@ html, body {
 }
 
 #head{
-
+    padding-top: 30px;
+    padding-left:100px;
 }
 
-#label{
-    margin-left: 20px;
-    font-size: large;
-    background:aliceblue ;
-}
 
 #output{
     width: 400px;
-    height:300px;
-    margin-left: 100px;
-    margin-top: 30px;
-    background: aliceblue;
+    height:240px;
+    padding-left: 100px;
     text-align:center;
 
 }
 #showme{
-    font-size: 150pt;
+    padding-top: 30px;
+    height:100px;
+    font-size: 45pt;
 }
 #ps{
+    padding-top: 10px;
+    height:100px;
     font-size: 15pt;
-    margin-bottom: 10px;
+}
+#button1{
+    padding-left:250px;
+    padding-bottom:40px;
+}
+
+#content2{
+    margin-left: 80px;
+    width: 600px;
+    height:400px;
+    background:floralwhite ;
+
+}
+#output2{
+    padding-top:20px;
+    padding-left: 100px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+}
+#showme2{
+    padding-top: 40px;
+    height:150px;
+    font-size: 30pt;
+}
+#ps2{
+    height:150px;
+    font-size:15pt;
+}
+#button2{
+    padding-left:220px;
+}
+#title1{
+    padding-top: 5px;
+    padding-left:200px;
+    font-size:25px;
+}
+#title2{
+    padding-top: 5px;
+    padding-left:200px;
+    font-size:25px;
 }

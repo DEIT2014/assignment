@@ -1,0 +1,8 @@
+{
+  "language":"DART",
+  "targets":["dartium","javascript","Android?"],
+  "website":{
+    "homepage":"www.dartlang.org",
+    "api":"api.dartlang.org"
+  }
+}
