@@ -10,8 +10,7 @@ var listA= [];
 void main() {
   for (var i = 0; i < 21; i++) {
     listA.add(0);
-    querySelector('#showme').text = '学号：';
-    querySelector('#name').text = '姓名：';
+    querySelector('#showme').text = '幸运儿是谁呢';
     querySelector('#create_number').onClick.listen(loadData);
   }
 }
@@ -26,12 +25,10 @@ onDataLoaded(responseText) {
   var randomVar=new Random();
   var num=randomVar.nextInt(21);
   var studentid=students['students'];
-  querySelector('#showme').text='学号：'+num.toString();
-  querySelector('#name').text='姓名：'+studentid[num.toString()];
   listA[num]++;
   if (listA[num]==1)
-  {querySelector('#create_number').text='未被点过'.toString();}
+  {querySelector('#showme').text='学号：'+num.toString()+" "+"姓名："+studentid[num.toString()];}
   else
-  {querySelector('#create_number').text='已被点过'.toString();}
+  {querySelector('#showme').text=studentid[num.toString()]+'同学已被点过，请重新点名'.toString();}
 }
 
