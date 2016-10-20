@@ -26,7 +26,7 @@ void main() {
       onError: printError);
 }
 
-void printError(error) => print(error);
+
 
 void handleGet(HttpRequest req) {
   HttpResponse res = req.response;
@@ -83,3 +83,4 @@ void defaultHandler(HttpRequest req) {
   res.write("Not found: ${req.method}, ${req.uri.path}");
   res.close();
 }
+void printError(error) => print(error);

@@ -3,7 +3,7 @@
 import 'dart:html';
 import 'dart:math';
 import 'dart:convert'show JSON;
-import 'dart:core';
+import 'dart:core'as core;
 
 var host="127.0.0.1:4040";
 var listA= [];
@@ -16,22 +16,22 @@ void main() {
   }
 }
 void loadData(_){
-  var url = "http://$host/students_data";
+  var url = "http://$host";
   var request = HttpRequest.getString(url).then(onDataLoaded);
 }
 
- onDataLoaded(responseText) {
-    var jsonString = responseText;
-    var students=JSON.decode(jsonString);
+onDataLoaded(responseText) {
+  var jsonString = responseText;
+  var students=JSON.decode(jsonString);
   var randomVar=new Random();
   var num=randomVar.nextInt(21);
-    var studentid=students['students'];
+  var studentid=students['students'];
   querySelector('#showme').text='学号：'+num.toString();
   querySelector('#name').text='姓名：'+studentid[num.toString()];
-listA[num]++;
-if (listA[num]==1)
-{querySelector('#create_number').text='未被点过'.toString();}
-else
-{querySelector('#create_number').text='已被点过'.toString();}
+  listA[num]++;
+  if (listA[num]==1)
+  {querySelector('#create_number').text='未被点过'.toString();}
+  else
+  {querySelector('#create_number').text='已被点过'.toString();}
 }
 
