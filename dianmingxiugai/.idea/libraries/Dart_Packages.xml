@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="Dart Packages" type="DartPackagesLibraryType">
+    <properties>
+      <option name="packageNameToDirsMap">
+        <entry key="browser">
+          <value>
+            <list>
+              <option value="C:/Users/%E5%86%B0%E5%80%A9%20%20%E7%8E%8B/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/browser-0.10.0+2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="json_object">
+          <value>
+            <list>
+              <option value="C:/Users/%E5%86%B0%E5%80%A9%20%20%E7%8E%8B/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/json_object-1.0.19+1/lib" />
+            </list>
+          </value>
+        </entry>
+      </option>
+    </properties>
+    <CLASSES>
+      <root url="file://C:/Users/%E5%86%B0%E5%80%A9%20%20%E7%8E%8B/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/browser-0.10.0+2/lib" />
+      <root url="file://C:/Users/%E5%86%B0%E5%80%A9%20%20%E7%8E%8B/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/json_object-1.0.19+1/lib" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
