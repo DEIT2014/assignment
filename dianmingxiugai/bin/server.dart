@@ -1,7 +1,8 @@
 import 'dart:io';
 final HOST = "127.0.0.1"; // eg: localhost
 final PORT = 4041;
-final DATA_FILE = "data.json";
+final DATA_FILE = 'D:\\assignment\\dianmingxiugai\\bin\\data.json';
+
 void main() {
   HttpServer.bind(HOST, PORT).then((server) {//返回server
     server.listen((HttpRequest request) {//监听是否有访问
@@ -30,12 +31,13 @@ void handleGet(HttpRequest req) {
   addCorsHeaders(res);
 
   var file = new File(DATA_FILE);
+
   if (file.existsSync()) {
     res.headers.add(HttpHeaders.CONTENT_TYPE, "application/json");
     file.readAsBytes().asStream().pipe(res); // automatically close output stream
   }
   else {
-    var err = "Could not find file: $DATA_FILE";
+    var err = "Could not find file: data.json";
     res.addError(err);
     res.close();
   }
