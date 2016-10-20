@@ -2,33 +2,32 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 import 'dart:html';
 import 'dart:math';
-import 'dart:convert';
-import 'dart:core'as core;
+import 'dart:convert'show JSON;
+import 'dart:core';
 
 var host="127.0.0.1:4040";
-var listA= new List;
-main() {
+var listA= [];
+void main() {
   for (var i = 0; i < 21; i++) {
     listA.add(0);
     querySelector('#showme').text = '学号：';
     querySelector('#name').text = '姓名：';
-    querySelector('#create_number').onClick.listen(generate);
+    querySelector('#create_number').onClick.listen(loadData);
   }
 }
-void generate(_){
-  var url="http://$host";
+void loadData(_){
+  var url = "http://$host/students_data";
   var request = HttpRequest.getString(url).then(onDataLoaded);
 }
 
  onDataLoaded(responseText) {
     var jsonString = responseText;
-    var students=jsonString;
-    querySelector("#create_number").text = jsonString;
-    var httpRequest = new HttpRequest();
+    var students=JSON.decode(jsonString);
   var randomVar=new Random();
-  var num=randomVar.nextInt(20);
+  var num=randomVar.nextInt(21);
+    var studentid=students['students'];
   querySelector('#showme').text='学号：'+num.toString();
-  querySelector('#name').text='姓名:'+students[num.toString()];
+  querySelector('#name').text='姓名：'+studentid[num.toString()];
 listA[num]++;
 if (listA[num]==1)
 {querySelector('#create_number').text='未被点过'.toString();}

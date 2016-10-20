@@ -1,8 +1,7 @@
 import 'dart:io';
-import 'dart:convert';
-final DATA_FILE = "namelist.json";
+final DATA_FILE = "E:\\dart\\random server\\bin\\namelist.json";
 final HOST = "127.0.0.1";
-final PORT = 8080;
+final PORT = 4040;
 
 void main() {
   HttpServer.bind(HOST, PORT).then((server) {
@@ -11,13 +10,22 @@ void main() {
         case "GET":
           handleGet(request);
           break;
+        case "POST":
+          handlePost(request);
+          break;
+        case "OPTIONS":
+          handleOptions(request);
+          break;
+        default: defaultHandler(request);
       }
     },
         onError: printError);
+
     print("Listening for GET and POST on http://$HOST:$PORT");
   },
       onError: printError);
 }
+
 void printError(error) => print(error);
 
 void handleGet(HttpRequest req) {
@@ -31,13 +39,47 @@ void handleGet(HttpRequest req) {
   }
   else {
     var err = "Could not find file: $DATA_FILE";
-    res.addStream(err);
+    res.addError(err);
     res.close();
   }
 }
 
+void handlePost(HttpRequest req) {
+  HttpResponse res = req.response;
+  print("${req.method}: ${req.uri.path}");
+
+  addCorsHeaders(res);
+
+  req.listen((List<int> buffer) {
+    var file = new File(DATA_FILE);
+    var ioSink = file.openWrite(); // save the data to the file
+    ioSink.add(buffer);
+    ioSink.close();
+
+    // return the same results back to the client
+    res.add(buffer);
+    res.close();
+  },
+      onError: printError);
+}
 void addCorsHeaders(HttpResponse res) {
   res.headers.add("Access-Control-Allow-Origin", "*");
   res.headers.add("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
   res.headers.add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+}
+
+void handleOptions(HttpRequest req) {
+  HttpResponse res = req.response;
+  addCorsHeaders(res);
+  print("${req.method}: ${req.uri.path}");
+  res.statusCode = HttpStatus.NO_CONTENT;
+  res.close();
+}
+
+void defaultHandler(HttpRequest req) {
+  HttpResponse res = req.response;
+  addCorsHeaders(res);
+  res.statusCode = HttpStatus.NOT_FOUND;
+  res.write("Not found: ${req.method}, ${req.uri.path}");
+  res.close();
 }
