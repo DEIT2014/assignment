@@ -11,7 +11,7 @@ import 'dart:io';
 
 final HOST = "127.0.0.1"; // eg: localhost 主机名
 final PORT = 8070;
-final DATA_FILE = "C:\\Users\\Sunny\\Desktop\\json\\bin\\data2.json";//数据文件
+final DATA_FILE = "C:\\Users\\Sunny\\WebstormProjects\\assignment\\Random\\bin\\data2.json";//数据文件
 
 void main() {
   HttpServer.bind(HOST, PORT).then((server) {
