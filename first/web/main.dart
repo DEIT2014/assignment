@@ -42,7 +42,7 @@ import 'dart:core';
 import 'dart:html';
 import  'dart:convert';
 import 'dart:core' as core;
-
+import 'dart:math';
 var host = "127.0.0.1:0923";
 
 void main() {
@@ -61,21 +61,15 @@ void loadData(_) {
 
 onDataLoaded(responseText) {//服务器返回的文本，在服务器里面有个桶，里面的东西，回调函数（直接写进去，就有这个数据了）
   //print(" Data Loaded");//可以不要
-  var jsonString = responseText;//拿到数据
-  var students=jsonString;
-  //不会做：需要讲jsonString中的东西，写成数字和姓名对应的列表，不会写。完成一个students（num）
-  querySelector('#create_number').onClick.listen(generate);
-  void generate(MouseEvent e)
-  {
-    var random=new Random();//如果填上数字，那么一直显示一个随机数，现在每点击一下，就会显示不同的随机数；
-    var num;
-    num = random.nextInt();
-    querySelector('#showme').text=students(num);
+  var jsonString;
+  jsonString = responseText;//拿到数据
+  Map jsonObject;
+  jsonObject=JSON.decode(jsonString);
 
-  }
+  var random=new Random();//如果填上数字，那么一直显示一个随机数，现在每点击一下，就会显示不同的随机数；
+  var num;
+  num = random.nextInt(21);
+  String i=num+1.toString();
+  querySelector('#showme').text = "学生姓名："+jsonObject['callingDATA']["i"];
 
-   }
-
-
-
-
+}
